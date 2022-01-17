@@ -10,24 +10,49 @@ namespace CalculosCuentas
     {
         static void Main(string[] args)
         {
-            string userAccount = "5011351011123456";
+            string userAccount = "1351011123456";
             string userAccount2 = "5020000000022211";
-            string resp =   generarCuentaCliente(userAccount2);
-            Console.WriteLine(resp);
+            string CuentaCliente = generarCuentaCliente(userAccount);
+         //   string CuentaIBAN = generarCuentaIBAN(CuentaCliente);
+            Console.WriteLine(CuentaCliente.Count());
             Console.ReadKey();
         }
-        public static string generarCuentaCliente(string cuentaUsuario) //16 a recibir
+
+        private static string generarCuentaIBAN(string cuentaCliente)
         {
-            if (cuentaUsuario.Length < 16)
+            //1-Concateana CC -> "CR00";
+            //2-A la izquierda de CC se coloca 0
+            //3- Convertir letras en números C=12 R=27
+            //Resta de 98
+            //Si es un digito anteponer un 0
+            var auxCuentaCliente = "1227000" + cuentaCliente;
+            //Convertir letras en números C=12 R=27
+            var res = Convert.ToInt64(auxCuentaCliente);
+            res = res %= 97;
+            res = res -= 98;
+            if (res<9)
             {
-                return "Cuenta debe contener 16 digitos";
+
+            }
+
+            return null;
+        }
+
+
+  
+
+        public static string generarCuentaCliente(string cuentaUsuario) //13 a recibir
+        {
+            if (cuentaUsuario.Length < 12)
+            {
+                return "Cuenta debe contener 13 digitos";
             }
             int multiplicador = 1, posicion = 0, tempResult = 0, result=0;
             string digitoVericador = String.Empty, multiplicando = String.Empty;
-
-            for (posicion = 0; posicion < cuentaUsuario.Length; posicion++)
+            cuentaUsuario = "501"+cuentaUsuario;
+            for (posicion = 0; posicion <= 15; posicion++)
             {   //Validamos rango del multiplicador de 1 a 9
-                if (multiplicador == 9) {
+                if (multiplicador == 10) {
                     multiplicador = 1; 
                 }
                 //Recorremos cada posicion a multiplicar
@@ -36,18 +61,17 @@ namespace CalculosCuentas
                 tempResult = Convert.ToInt32(multiplicando) * multiplicador++; //Incrementamos multiplicador 
                 multiplicando = string.Empty;
                 result = result + tempResult;
+                tempResult = 0;
             }
             //realizar mod 11
             var res = Convert.ToInt32(result);
-            res %= 11;
+            res %= 97;
             if (res > 9)
             {
                 digitoVericador = res.ToString().ElementAt(0).ToString();
             }
-            else
-            {
-                digitoVericador = res.ToString();
-            }
+            digitoVericador = res.ToString();
+
             return cuentaUsuario + digitoVericador;
         }
     }
