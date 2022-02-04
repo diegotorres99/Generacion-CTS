@@ -1,0 +1,7 @@
+C:\Users\Watek PC\Desktop\My Job\Ejemplos C#\CalculosCuentas\bin\Release\CalculosCuentas.exe.config
+C:\Users\Watek PC\Desktop\My Job\Ejemplos C#\CalculosCuentas\bin\Release\CalculosCuentas.exe
+C:\Users\Watek PC\Desktop\My Job\Ejemplos C#\CalculosCuentas\bin\Release\CalculosCuentas.pdb
+C:\Users\Watek PC\Desktop\My Job\Ejemplos C#\CalculosCuentas\obj\Release\CalculosCuentas.csproj.AssemblyReference.cache
+C:\Users\Watek PC\Desktop\My Job\Ejemplos C#\CalculosCuentas\obj\Release\CalculosCuentas.csproj.CoreCompileInputs.cache
+C:\Users\Watek PC\Desktop\My Job\Ejemplos C#\CalculosCuentas\obj\Release\CalculosCuentas.exe
+C:\Users\Watek PC\Desktop\My Job\Ejemplos C#\CalculosCuentas\obj\Release\CalculosCuentas.pdb
